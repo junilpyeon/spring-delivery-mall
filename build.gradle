@@ -48,8 +48,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	//api 문서웹, http://localhost:8088/swagger-ui.html#/
-	implementation 'io.springfox:springfox-swagger2:2.6.1'
-	implementation 'io.springfox:springfox-swagger-ui:2.6.1'
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 
 	//kafka, zookeeper 서버 두대로 설정
 	implementation 'org.springframework.kafka:spring-kafka'
