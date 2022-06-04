@@ -1,7 +1,7 @@
 //queryDSL 플러그인 받을 수 있게 dependency 넣어줌
 buildscript {
 	dependencies {
-		classpath("gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10")  
+		//classpath("gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10")
 	}
 }
 
@@ -11,8 +11,6 @@ plugins {
 	id "io.franzbecker.gradle-lombok" version "3.0.0"
 	id 'java'
 }
-
-apply plugin: "com.ewerk.gradle.plugins.querydsl"
 
 group = 'com.jpabook'
 version = '0.0.1-SNAPSHOT'
@@ -36,8 +34,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 	//queryDSL
-	implementation 'com.querydsl:querydsl-jpa'
-	implementation 'com.querydsl:querydsl-apt'
+	//implementation 'com.querydsl:querydsl-jpa'
+	//implementation 'com.querydsl:querydsl-apt'
 
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5' //LAZY로딩을 강제로 끌어옴
@@ -57,7 +55,7 @@ dependencies {
 	//security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security:spring-security-test'
-	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
+//	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
 }
 
 tasks.named('test') {
@@ -65,34 +63,35 @@ tasks.named('test') {
 }
 
 //querydsl 추가
-def querydslDir = 'src/main/generated'
+//apply plugin: "com.ewerk.gradle.plugins.querydsl"
+//def querydslDir = 'src/main/generated'
 //def querydslDir = "$buildDir/generated/querydsl"
 
-querydsl {
-	library = "com.querydsl:querydsl-apt"
-	jpa = true
-	querydslSourcesDir = querydslDir
-}
+//querydsl {
+//	library = "com.querydsl:querydsl-apt"
+//	jpa = true
+//	querydslSourcesDir = querydslDir
+//}
 
-sourceSets {
-	main {
-		java {
-			srcDirs = ['src/main/java', querydslDir]
-		}
-	}
-}
+//sourceSets {
+//	main {
+//		java {
+//			srcDirs = ['src/main/java', querydslDir]
+//		}
+//	}
+//}
 
-compileQuerydsl{
-	options.annotationProcessorPath = configurations.querydsl
-}
+//compileQuerydsl{
+//	options.annotationProcessorPath = configurations.querydsl
+//}
 
-configurations {
-	querydsl.extendsFrom compileClasspath
-}
+//configurations {
+//	querydsl.extendsFrom compileClasspath
+//}
 
-compileQuerydsl.doFirst {
-	if(file(querydslDir).exists() )
-		delete(file(querydslDir))
-}
+//compileQuerydsl.doFirst {
+//	if(file(querydslDir).exists() )
+//		delete(file(querydslDir))
+//}
 
 

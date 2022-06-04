@@ -1,7 +1,7 @@
 package com.jpabook.jpashop.repository;
 
-import com.querydsl.core.types.dsl.BooleanExpression;
-import com.querydsl.jpa.impl.JPAQueryFactory;
+//import com.querydsl.core.types.dsl.BooleanExpression;
+//import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.jpabook.jpashop.domain.*;
 import com.jpabook.jpashop.domain.Order;
 import lombok.RequiredArgsConstructor;
@@ -21,11 +21,11 @@ import java.util.List;
 public class OrderRepository {
 
     private final EntityManager em;
-    private final JPAQueryFactory query;
+//    private final JPAQueryFactory query;
 
     public OrderRepository(EntityManager em) {
         this.em = em;
-        this.query = new JPAQueryFactory(em);
+//        this.query = new JPAQueryFactory(em);
     }
 
     public void save(Order order) {
